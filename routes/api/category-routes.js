@@ -20,10 +20,7 @@ router.get('/:id', async (req, res) => {
   try {
   // find one category by its `id` value
   let id= req.params.id
-  let selectedCategory= await Category.findByPk({
-    where: {
-      id
-    },
+  let selectedCategory= await Category.findByPk(id,{
     // be sure to include its associated Products
     include : [Product]
   })
