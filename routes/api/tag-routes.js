@@ -19,7 +19,10 @@ router.get('/:id', (req, res) => {
   // find a single tag by its `id`
   // be sure to include its associated Product data
   try {
-
+    let id= req.params.id
+    let selectedTag= Tag.findByPk(id, {
+      include: [Product]
+    })
   } catch(err) {
     res.status(500).json(err)
   }
@@ -28,7 +31,8 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   // create a new tag
   try {
-
+    let newTag= Tag.create(req.body)
+    res.json(newTag)
   } catch(err) {
     res.status(500).json(err)
   }
