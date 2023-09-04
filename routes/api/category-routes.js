@@ -49,6 +49,7 @@ router.put('/:id', async (req, res) => {
       }
     })
       res.json(updatedCategory)
+      console.log('Category updated successfully')
   } catch (err) {
     res.status(500).json(err)
   }
