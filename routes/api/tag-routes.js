@@ -10,6 +10,7 @@ router.get('/', async (req, res) => {
     let tags= await Tag.findAll({
       include: [Product]
     })
+    res.json(tags)
   } catch(err) {
     res.status(500).json(err)
   }
@@ -23,6 +24,7 @@ router.get('/:id', async (req, res) => {
     let selectedTag= await Tag.findByPk(id, {
       include: [Product]
     })
+    res.json(selectedTag)
   } catch(err) {
     res.status(500).json(err)
   }

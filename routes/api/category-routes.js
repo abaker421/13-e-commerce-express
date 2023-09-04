@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {id:
   try {
   // find one category by its `id` value
   let id= req.params.id
