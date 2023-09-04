@@ -22,7 +22,7 @@ Week 13 challenge for U of W boot camp. Used starter code to create routes for p
 ## Usage
 
 -Run `npm run start` in the terminal to begin the server<br>
--Use Postman or Insomnia to interact with the server and database
+-Use Postman or Insomnia to interact with the server and database via POST, GET, PUT or DELETE requests
 
 ## Features
 
@@ -42,6 +42,7 @@ Video Demo:
 Screenshot:
 
 ![image](https://github.com/abaker421/13-e-commerce-express/assets/123577761/3581da42-65b5-4444-9a15-3674e8cda313)
+
 ## Contributing
 
 This is a homework assignments, so no pull requests will be accepted except those by universty and approved staff
