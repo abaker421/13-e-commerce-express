@@ -8,7 +8,7 @@ router.get('/', async (req, res) => {
   try {
     // find all products
     // be sure to include its associated Category and Tag data
-    let products= await Products.findAll({
+    let products= await Product.findAll({
       include: [Category, Tag]
   })
   res.json(products)
@@ -23,11 +23,8 @@ router.get('/:id', async (req, res) => {
   // be sure to include its associated Category and Tag data
   try {
     let id= req.params.id
-    let selectedProduct = await Product.findByPk({
-      where: {
-        id
-      }
-    })
+    let selectedProduct = await Product.findByPk(id)
+      
     res.json(selectedProduct)
   } catch (err) {
     res.status(500).json(err)
@@ -67,9 +64,9 @@ router.post('/', (req, res) => {
 });
 
 // update product
-router.put('/:id', async (req, res) => {
+router.put('/:id', (req, res) => {
   // update product data
-  await Product.update(req.body, {
+   Product.update(req.body, {
     where: {
       id: req.params.id,
     },
