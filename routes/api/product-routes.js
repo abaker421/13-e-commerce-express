@@ -24,10 +24,14 @@ router.get('/:id', async (req, res) => {
   try {
     let id= req.params.id
     let selectedProduct = await Product.findByPk(id, {include:
-      [Product, Tag]
+      [Category, Tag]
     })
-      
-    res.json(selectedProduct)
+      if (!selectedProduct){
+        res.status(404)
+        console.log('Product not found')
+      } else {
+        res.json(selectedProduct)
+      }
   } catch (err) {
     res.status(500).json(err)
   }
