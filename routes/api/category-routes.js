@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+  try {
   // find one category by its `id` value
   let id= req.params.id
   let selectedCategory= await Category.findByPk({
@@ -26,10 +27,18 @@ router.get('/:id', async (req, res) => {
     // be sure to include its associated Products
     include : [Product]
   })
+  res.json(selectedCategory)
+} catch(err) {
+  res.status(500).json(err)
+}
 });
 
-router.post('/', (req, res) => {
-  // create a new category
+router.post('/', async (req, res) => {
+  try{
+    let newCategory= await Category.create(req.body)
+  } catch (err) {
+    res.status(500).json(err)
+  }
 });
 
 router.put('/:id', (req, res) => {
